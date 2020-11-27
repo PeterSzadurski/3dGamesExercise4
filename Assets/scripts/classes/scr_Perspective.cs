@@ -44,7 +44,7 @@ public class scr_Perspective : cls_Sense
                 break;
 
         }
-        Debug.Log("reset");
+      //  Debug.Log("reset");
     }
     protected override void UpdateSense()
     {
@@ -65,7 +65,7 @@ public class scr_Perspective : cls_Sense
             if (Physics.Raycast(transform.position, _RayDirection, out hit, _ViewDistance))
             {
                 enum_SmartObject smartObject = hit.collider.GetComponent<enum_SmartObject>();
-                Debug.Log(gameObject.name + ": " + hit.collider.gameObject.name);
+                //Debug.Log(gameObject.name + ": " + hit.collider.gameObject.name);
                 if (smartObject != null)
                 {
 
@@ -84,7 +84,7 @@ public class scr_Perspective : cls_Sense
                                 }
                                 break;
                             case SmartObject.PLAYER:
-                                Debug.Log("Player");
+                               // Debug.Log("Player");
                                 aiAction = cls_AI_Action.Chase;
                                 break;
                             default:
