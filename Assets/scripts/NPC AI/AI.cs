@@ -87,7 +87,8 @@ public class AI : MonoBehaviour
 
     public void Flee()
     {
-        _Agent.SetDestination(_FleeTargets.Aggregate((x, y) => Vector3.Distance(transform.position, y.position) >
+        _Agent.SetDestination(_FleeTargets.Aggregate((x, y) =>
+        Vector3.Distance(transform.position, x.position) >
         Vector3.Distance(transform.position, y.position) ? x : y).position);
     }
 
@@ -156,13 +157,15 @@ public class AI : MonoBehaviour
         return Vector3.Distance(transform.position, _TargetObject.transform.position) < AttackRange;
     }
 
-    
+
     public void Fire()
     {
         _Gun.Shoot();
     }
 
-    public bool Fled() { 
+    public bool Fled()
+    {
+        Debug.Log("Distance: " + Vector3.Distance(_TargetObject.transform.position, transform.position));
         return Vector3.Distance(_TargetObject.transform.position, transform.position) > _FleeRange;
 
     }
